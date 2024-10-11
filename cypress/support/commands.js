@@ -40,12 +40,6 @@ Cypress.Commands.add(
     }
 );
 
-Cypress.Commands.add("assertImgSrc", (selector, num) => {
-    cy.get(selector)
-        .children()
-        .first()
-        .invoke("attr", "src")
-        .then((src) => {
-            expect(src).to.contain(num);
-        });
+Cypress.Commands.add("assertImageIsVisible", (num) => {
+    cy.get(`img[src="emojis/emoji-${num}.png"]`).should("be.visible");
 });
