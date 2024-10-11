@@ -13,9 +13,7 @@ describe("Rating Functionality", () => {
         cy.get(".star-1").click();
 
         cy.assertComputedStyleContent(".text", "I just hate it");
-
         cy.assertComputedStyleContent(".numb", "1 out of 5");
-
         cy.assertImgSrc(".slideImg", 1);
     });
 });
