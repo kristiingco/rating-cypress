@@ -23,3 +23,19 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add(
+    "assertComputedStyleContent",
+    (selector, expectedContent) => {
+        cy.get(selector).then(($element) => {
+            const computedStyle = window.getComputedStyle(
+                $element[0],
+                "::before"
+            );
+
+            const content = computedStyle.getPropertyValue("content");
+
+            expect(content).to.contain(expectedContent);
+        });
+    }
+);
