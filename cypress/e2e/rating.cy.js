@@ -24,4 +24,12 @@ describe("Rating Functionality", () => {
         cy.assertComputedStyleContent(".numb", "2 out of 5");
         cy.assertImageIsVisible(2);
     });
+
+    it("should rate three stars", () => {
+        cy.get(".star-3").click();
+
+        cy.assertComputedStyleContent(".text", "This is awesome");
+        cy.assertComputedStyleContent(".numb", "3 out of 5");
+        cy.assertImageIsVisible(3);
+    });
 });
