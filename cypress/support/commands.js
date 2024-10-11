@@ -39,3 +39,13 @@ Cypress.Commands.add(
         });
     }
 );
+
+Cypress.Commands.add("assertImgSrc", (selector, num) => {
+    cy.get(selector)
+        .children()
+        .first()
+        .invoke("attr", "src")
+        .then((src) => {
+            expect(src).to.contain(num);
+        });
+});

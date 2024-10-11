@@ -15,5 +15,7 @@ describe("Rating Functionality", () => {
         cy.assertComputedStyleContent(".text", "I just hate it");
 
         cy.assertComputedStyleContent(".numb", "1 out of 5");
+
+        cy.assertImgSrc(".slideImg", 1);
     });
 });
